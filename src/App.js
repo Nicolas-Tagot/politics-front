@@ -3,6 +3,7 @@ import Help from './components/Help';
 import NavBar from './components/NavBar';
 import Center from './components/Center';
 import Create from './components/Create';
+import Article from './components/Article';
 import {
   BrowserRouter as Router,
   Switch,
@@ -35,6 +36,9 @@ class App extends React.Component{
             </Route>
             <Route path="/create">
               <Create />
+            </Route>
+            <Route path="/article/:id">
+              <Article />
             </Route>
           </Switch>
         </Router>

@@ -8,22 +8,26 @@ import {
 } from "react-router-dom";
 
 
-class NavBar extends React.Component{
+class Article extends React.Component{
   constructor(props){
     super(props);
     this.state={
-        allPost : [{user : "wait..."}]
+        post: {}
     };
-  };
 
+  };
   componentDidMount(){
     const set = this;
-    axios.get('http://localhost:8000/post')
+    const  handle  = window.location.pathname.substr(9);
+  
+    console.log(handle)
+    axios.get(`http://localhost:8000/post/article/${handle}`)
   .then(function (response) {
     // handle success
   
     const data = response.data;
-    set.setState({ allPost: data})
+    console.log(data);
+    set.setState({ post: data})
   })
   .catch(function (error) {
     // handle error
@@ -33,21 +37,13 @@ class NavBar extends React.Component{
 
 
   render(){
-  
+  const { title, intro, content } = this.state.post; 
     return(
       <div>
-                  {this.state.allPost.map( (item) => (
-         <Link to={`/article/${item.id}`}> <p>
-            {item.user}
-            {item.title}
-            {item.intro}
-            {item.content}
-            {item.depend_name}
-          </p></Link>
-        ))}
+       {title}{intro}{content}
       </div>
     )
   }
 }
 
-export default NavBar;
+export default Article;
