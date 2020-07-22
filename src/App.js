@@ -1,40 +1,44 @@
 import React from 'react';
-import axios from 'axios';
+import Help from './components/Help';
+import NavBar from './components/NavBar';
+import Center from './components/Center';
+import Create from './components/Create';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 
 class App extends React.Component{
   constructor(props){
     super(props);
     this.state={
-      allPost : [{user : "wait..."}]
+     
     };
   };
 
-  componentDidMount(){
-    const set = this;
-    axios.get('http://localhost:8000/post')
-  .then(function (response) {
-    // handle success
-  
-    const data = response.data;
-    console.log(data);
-    set.setState({ allPost: data})
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-  }
 
   render(){
     console.log(this.state.allPost)
     return(
       <div>
-        <h1>Bonjour</h1>
-        {this.state.allPost.map( (item) => (
-          <p>
-            {item.user}
-          </p>
-        ))}
+        <Router>
+        <NavBar /> 
+         <Switch>
+            <Route path="/help">
+              <Help />
+            </Route>
+            <Route exact path="/" >
+              <Center />
+            </Route>
+            <Route path="/create">
+              <Create />
+            </Route>
+          </Switch>
+        </Router>
+
       </div>
     )
   }
