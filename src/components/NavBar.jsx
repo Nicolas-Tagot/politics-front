@@ -19,11 +19,11 @@ class NavBar extends React.Component{
   render(){
   
     return(
-      <div>
-         <div>Menu</div>
-         <div>Filtres</div>
-         <Link to="/create">Créer</Link>
-         <Link to="/help"><div>Help</div></Link>
+      <div className="navBar">
+         <Link className="menu" to="/">Wlcm</Link>
+         <div className="menu blue" >Fltr</div>
+         <Link className="menu green" to="/create">Mk</Link>
+         <Link className="menu" to="/help"><div>Help</div></Link>
       </div>
     )
   }

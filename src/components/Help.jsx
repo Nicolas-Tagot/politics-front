@@ -19,10 +19,13 @@ class Help extends React.Component{
   render(){
    
     return(
-      <div>
-          <h1>You need help ?</h1>
-          <Link to="/"><p>retour</p></Link>
-      </div>
+      <div className="article">
+      <div className="title">About</div>
+      <div className="intro">Wlcm. in strnge wrld!</div>
+      <div className="content"><p>politiq: it's scl ntwrk for mk wtf !</p>
+      <p>you can wrt everythng but everyone juge you. So are you Mk Brn or Cld ? fck Mk noise nd create reaction ! </p></div>
+  
+  </div>
     )
   }
 }
