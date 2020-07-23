@@ -8,7 +8,7 @@
   color: black;
   text-decoration: none;
   background-color: white;
-  box-shadow: 6px 11px 35px -12px rgba(0,0,0,0.75);
+  box-shadow: 11px 11px 15px -5px rgba(0,0,0,0.55);
   width: 250px;
   padding: 15px;
   margin: 30px;
@@ -32,10 +32,18 @@ body{
  .navBar{
    color: black;
    background-color: white;
-   box-shadow: -1px 3px 13px -2px rgba(0,0,0,0.75);
+   box-shadow: -1px 3px 8px -2px rgba(0,0,0,0.75);
    display: flex;
    padding: 15px;
  }
+ .up{
+  z-index: 8;
+}
+.down{
+  z-index: 2;
+  margin-top: 45px;
+}
+
  .menu{
   width: 75px;
   color: dimgray;
@@ -47,17 +55,17 @@ body{
  }
 .menu:hover{
   color: black;
-  box-shadow: inset -20px -19px 29px -27px rgba(0,0,0,0.75);
+  box-shadow: inset -20px -19px 19px -27px rgba(0,0,0,0.75);
   transition: 0.2s;
 }
  .green:hover{
-   background-color: darkolivegreen;
+   background-color: rgb(86, 255, 86);
  }
  .blue:hover{
-  background-color:darkslategray;
+  background-color:rgb(153, 255, 255);
 }
 .red:hover{
-  background-color: darkred;
+  background-color: rgb(255, 109, 109);
 }
 
 .containForm{

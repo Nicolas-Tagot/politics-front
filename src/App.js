@@ -5,7 +5,6 @@ import NavBar from './components/NavBar';
 import Center from './components/Center';
 import Create from './components/Create';
 import Article from './components/Article';
-import Footer from './components/Footer';
 import {
   BrowserRouter as Router,
   Switch,
@@ -44,7 +43,6 @@ class App extends React.Component{
             </Route>
           </Switch>
         </Router>
-      <Footer />
       </div>
     )
   }

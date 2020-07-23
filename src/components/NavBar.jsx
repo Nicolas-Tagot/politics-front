@@ -19,12 +19,14 @@ class NavBar extends React.Component{
   render(){
   
     return(
-      <div className="navBar">
+      <div>
+      <div className="navBar up">
          <Link className="menu" to="/">Wlcm</Link>
-         <div className="menu blue" >Fltr</div>
          <Link className="menu green" to="/create">Mk</Link>
          <Link className="menu" to="/help"><div>Help</div></Link>
+         </div>
       </div>
+
     )
   }
 }

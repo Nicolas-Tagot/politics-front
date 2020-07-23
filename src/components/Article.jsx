@@ -16,7 +16,11 @@ class Article extends React.Component {
         };
 
     };
-    componentDidMount() {
+componentDidMount(){
+    this.catchData()
+}
+
+    catchData() {
         const set = this;
         const handle = window.location.pathname.substr(9);
 
@@ -32,6 +36,25 @@ class Article extends React.Component {
                 console.log(error);
             })
     }
+    modify(value){
+        const set = this;
+        const { cold, burn } = this.state.post;
+     
+        const handle = window.location.pathname.substr(9);
+         if(value === 'cold'){
+            const neo = cold + 1
+            console.log(neo)
+            axios.put(`http://localhost:8000/post/modify/${handle}`, {
+             cold : neo
+              })
+        }
+        if(value === 'burn'){
+            const neo = burn + 1
+            axios.put(`http://localhost:8000/post/modify/${handle}`, {
+             burn : neo
+              })
+        }
+    }
 
 
     render() {
@@ -42,8 +65,8 @@ class Article extends React.Component {
                 <div className="intro">{intro}</div>
                 <div className="content">{content}</div>
                 <div className="flexContent">
-                    <div className="menu blue small">Cold: {cold}</div>
-                    <div className="menu red small">Burn: {burn}</div>
+                    <Link to="/" className="menu blue small" onClick={() => this.modify('cold')}>Cold: {cold}</Link>
+                    <Link to='/' className="menu red small"  onClick={() => this.modify('burn')}>Burn: {burn}</Link>
                 </div>
             </div>
         )
