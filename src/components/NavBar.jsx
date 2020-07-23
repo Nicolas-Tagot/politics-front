@@ -23,7 +23,7 @@ class NavBar extends React.Component{
       <div className="navBar down">
         <div className="logo"/>
          <Link className="menu" to="/">Wlcm</Link>
-         <Link className="menu green" to="/create">Mk</Link>
+         <Link className="menu green" to="/create">Create</Link>
          <Link className="menu" to="/help"><div>About</div></Link>
          </div>
       </div>
