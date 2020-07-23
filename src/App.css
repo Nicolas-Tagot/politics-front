@@ -1,3 +1,4 @@
+@media only screen and (min-width:800px) {
 .full{
   text-decoration:none;
   margin-top: 50px;
@@ -178,4 +179,190 @@ body{
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+}
+}
+@media only screen and (max-width:800px) {
+
+  .full{
+    text-decoration:none;
+    margin-top: 50px;
+
+    width: 100%;
+
+  }
+  .start{
+    position: relative;
+    top: 250px;
+  }
+  .logo{
+    background-image: url("./components/logo.png");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+  }
+  .box{
+    color: black;
+    text-decoration: none;
+    background-color: white;
+    box-shadow: 11px 11px 15px -5px rgba(0,0,0,0.55);
+    width: 100%;
+    padding: 15px;
+    margin-top: 50px;
+    }
+    
+  
+    .box:hover{
+      transform: scale(1.01);
+      transition: 0.1s;
+    }
+  body{
+    text-decoration: none;
+  }
+  .txt{
+    text-decoration: none;
+    color: black;
+    }
+    a{
+      text-decoration: none;
+    }
+    .centre{
+      margin: auto;
+    }
+  
+   .navBar{
+     position: fixed;
+     display: flex;
+     flex-direction: column;
+     top: 0px;
+     width: 100%;
+     color: black;
+     background-color: white;
+     box-shadow: -1px 3px 8px -2px rgba(0,0,0,0.75);
+       z-index: 3;
+   }
+   .filtre{
+    position: relative;
+    top: -110px;
+    z-index: 1;
+   }
+  
+   .flex{
+     display: flex;
+     background-color: dimgrey;
+     align-items: center;
+   }
+   .up{
+    z-index: 8;
+    margin-left: 45px;
+  }
+  
+  
+   .menu{
+    
+    color: dimgray;
+    text-decoration: none;
+    text-align: center;
+    padding: 15px;
+    transition: 1.4s;
+   }
+  .menu:hover{
+    color: grey;
+    box-shadow: inset -20px -19px 19px -27px rgba(0,0,0,0.75);
+    transition: 0.7s;
+  }
+   .green:hover{
+     background-color: rgb(208, 255, 208);
+   }
+   .blue:hover{
+    background-color:rgb(197, 255, 255);
+  }
+  .red:hover{
+    background-color: rgb(255, 194, 194);
+  }
+  
+  .containForm{
+    position: relative;
+    top: 200px;
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
+    margin: auto;
+    margin-top: 40px;
+    width: 90%;
+  }
+  
+  .champForm{
+    display: flex;
+    flex-direction: column;
+    width: ;
+    margin: 11px;
+    padding: 12px;
+  }
+  
+  .form{
+    box-shadow: inset 2px 4px 4px 0px rgba(42,42,42,.26);
+    padding: 17px;
+    outline: none;
+    border: hidden;
+
+    transition: 2s;
+  }
+  .form:focus{
+    box-shadow: inset 2px 4px 4px 0px rgba(42,42,42,.56);
+    border: none;
+  
+    transition: 1.5s;
+  }
+  
+  
+  .article{
+    background-color: white;
+    margin: auto;
+    padding: 30px;
+    margin-top: 42px;
+    width: 35%;
+  
+  }
+  
+  .title{
+    margin: auto;
+    text-align: center;
+    font-size: large;
+  }
+  
+  .intro{
+    color: grey;
+    margin-top: 30px;
+    margin-left: 10%;
+    font-style: italic;
+  }
+  .content{
+    color: dimgray;
+    margin-top: 12px;
+    font-size: small;
+  }
+  
+  .flexContent{
+  
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+  }
+  
+  .footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-right: 1px;
+    padding: 20px;
+    text-align: right;
+    background-color: darkgray;
+  }
+  .mapCreate{
+    margin: auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
 }
