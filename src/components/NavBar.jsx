@@ -20,10 +20,11 @@ class NavBar extends React.Component{
   
     return(
       <div>
-      <div className="navBar up">
+      <div className="navBar down">
+        <div className="logo"/>
          <Link className="menu" to="/">Wlcm</Link>
          <Link className="menu green" to="/create">Mk</Link>
-         <Link className="menu" to="/help"><div>Help</div></Link>
+         <Link className="menu" to="/help"><div>About</div></Link>
          </div>
       </div>
 

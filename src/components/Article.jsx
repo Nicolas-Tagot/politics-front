@@ -12,13 +12,14 @@ class Article extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            post: {}
+            post: {},
+            display: false
         };
 
     };
-componentDidMount(){
-    this.catchData()
-}
+    componentDidMount() {
+        this.catchData()
+    }
 
     catchData() {
         const set = this;
@@ -36,37 +37,72 @@ componentDidMount(){
                 console.log(error);
             })
     }
-    modify(value){
-        const set = this;
+    modify(value) {
+
         const { cold, burn } = this.state.post;
-     
+
         const handle = window.location.pathname.substr(9);
-         if(value === 'cold'){
+        if (value === 'cold') {
             const neo = cold + 1
             console.log(neo)
             axios.put(`http://localhost:8000/post/modify/${handle}`, {
-             cold : neo
-              })
+                cold: neo
+            })
         }
-        if(value === 'burn'){
+        if (value === 'burn') {
             const neo = burn + 1
             axios.put(`http://localhost:8000/post/modify/${handle}`, {
-             burn : neo
-              })
+                burn: neo
+            })
         }
+    }
+    displayer() {
+        const display = this.state.display
+        this.setState({ display: !display })
+    }
+    deleteIt() {
+        const { key, name } = this.state;
+        console.log(key)
+        const handle = window.location.pathname.substr(9);
+        axios.post(`http://localhost:8000/post/delete/${handle}`, {
+            key: key,
+            name: name
+        }).then(function (response) {
+            const data = response;
+            console.log(data);
+        })
     }
 
 
     render() {
         const { title, intro, content, cold, burn } = this.state.post;
         return (
-            <div className="article">
-                <div className="title">{title}</div>
-                <div className="intro">{intro}</div>
-                <div className="content">{content}</div>
-                <div className="flexContent">
-                    <Link to="/" className="menu blue small" onClick={() => this.modify('cold')}>Cold: {cold}</Link>
-                    <Link to='/' className="menu red small"  onClick={() => this.modify('burn')}>Burn: {burn}</Link>
+            <div className='start'>
+                <div className="navBar filtre">
+                    <div className="menu" onClick={() => this.displayer()}>x</div>
+
+
+                    {this.state.display ? (
+                        <div className="flex">
+                            <input className='form' placeholder='Pseudo' type="text" onChange={(event) => {
+                                const input = event.target;
+                                this.setState({ name: input.value })
+                            }} />
+                            <input className='form' placeholder='Key' input type="password" onChange={(event) => {
+                                const input = event.target;
+                                this.setState({ key: input.value })
+                            }} />
+                            <Link to="/"><div className="menu red" onClick={() => this.deleteIt()}>Dlt</div></Link>
+                        </div>) : null}
+                    <div className="title">{title}</div>
+                </div>
+                <div className="article">
+                    <div className="intro">{intro}</div>
+                    <div className="content">{content}</div>
+                    <div className="flexContent">
+                        <Link to="/" className="menu blue small" onClick={() => this.modify('cold')}>Cold: {cold}</Link>
+                        <Link to='/' className="menu red small" onClick={() => this.modify('burn')}>Burn: {burn}</Link>
+                    </div>
                 </div>
             </div>
         )

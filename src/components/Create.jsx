@@ -73,54 +73,51 @@ class NavBar extends React.Component {
 
     return (
       <div className="containForm">
-        <div className="champForm">
-          Pseudo :
-        <input type="text" onChange={(event) => {
+        <div className="champForm centre">
+           <input className='form' type="text" onChange={(event) => {
             const input = event.target;
             this.setState({ user: input.value })
-          }} />
+          }} placeholder='Pseudo' />
+        </div>
+        <div className="champForm">
+        <input className='form' type="text" onChange={(event) => {
+            const input = event.target;
+            this.setState({ key_post: input.value })
+          }} placeholder='Key' />
+        </div>
+        <div className="champForm">
+   
+        <input className='form' type="text" onChange={(event) => {
+            const input = event.target;
+            this.setState({ title: input.value })
+          }}  placeholder='Title'  />
         </div>
         <div className="champForm">
 
-         Clef (password):
-        <input type="text" onChange={(event) => {
-            const input = event.target;
-            this.setState({ key_post: input.value })
-          }} />
-        </div>
-        <div className="champForm">
-          Titre:
-        <input type="text" onChange={(event) => {
-            const input = event.target;
-            this.setState({ title: input.value })
-          }} />
-        </div>
-        <div className="champForm">
-          Introduction:
-        <input type="text" onChange={(event) => {
+        <input className='form' type="text" onChange={(event) => {
             const input = event.target;
             this.setState({ intro: input.value })
-          }} />
+          }} placeholder='Introduction'   />
         </div>
         <div className="champForm">
-          Contenue:
-          <textarea id="ctn" name="ctnr"
+
+          <textarea className='form' id="ctn" name="ctnr"
             rows="5" cols="33" onChange={(event) => {
               const input = event.target;;
               this.setState({ content: input.value })
-            }} />
+            }} placeholder='Content'   />
         </div>
         <div className="champForm">
-          Types:
-            <select value={this.state.value} onChange={this.handleChange}>
+             <select  className="form" value={this.state.value} onChange={this.handleChange}>
+              <option className='menu'>Slct</option>
               {this.state.depends_data.map((item) => (
-                <option value={item.id}>{item.depend_name}</option>
+                <option className='menu' value={item.id}>{item.depend_name}</option>
               ))}
             </select>
-
           </div>
        
-        <Link to="/"> <input type="button" value="Send" onClick={() => this.createPost()} /></Link>
+        <Link to="/"> <div  className='menu' onClick={() => this.createPost()} >Snd</div></Link>
+        
       </div>
     )
   }
