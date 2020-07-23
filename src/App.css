@@ -3,7 +3,7 @@
   text-decoration:none;
   margin-top: 50px;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
 
   width: 100%;
   flex-wrap: wrap;
@@ -248,7 +248,6 @@ body{
   
    .flex{
      display: flex;
-     background-color: dimgrey;
      align-items: center;
    }
    .up{
