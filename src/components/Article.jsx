@@ -13,7 +13,11 @@ class Article extends React.Component {
         super(props);
         this.state = {
             post: {},
-            display: false
+            display: false,
+            isModify: false,
+            titleM: '',
+            contentM : '',
+            introM : ''
         };
 
     };
@@ -31,6 +35,8 @@ class Article extends React.Component {
                 const data = response.data;
                 console.log(data);
                 set.setState({ post: data })
+                const { title, intro, content } = data;
+                set.setState({ titleM : title, introM : intro, contentM : content })
             })
             .catch(function (error) {
                 // handle error
@@ -72,6 +78,21 @@ class Article extends React.Component {
             console.log(data);
         })
     }
+    modifyIt(){
+        const { titleM, introM, contentM, key, name } = this.state;
+        console.log(titleM, introM, contentM, key, name);
+        const handle = window.location.pathname.substr(9);
+        axios.put(`http://localhost:8000/post/modify/${handle}`, {
+            key_post: key,
+            user: name,
+            title : titleM,
+            intro: introM,
+            content: contentM
+        }).then(function (response) {
+            const data = response;
+            console.log(data);
+        })
+    }
 
 
     render() {
@@ -80,8 +101,7 @@ class Article extends React.Component {
             <div className='start'>
                 <div className="navBar filtre">
                     <div className="menu" onClick={() => this.displayer()}>x</div>
-
-
+                    
                     {this.state.display ? (
                         <div className="flex">
                             <input className='form' placeholder='Pseudo' type="text" onChange={(event) => {
@@ -92,17 +112,37 @@ class Article extends React.Component {
                                 const input = event.target;
                                 this.setState({ key: input.value })
                             }} />
+                             <Link to="/"><div className="menu green" onClick={() => this.modifyIt()}>Mdfy</div></Link>
                             <Link to="/"><div className="menu red" onClick={() => this.deleteIt()}>Dlt</div></Link>
-                        </div>) : null}
-                    <div className="title">{title}</div>
+                            </div>) : null}
+                   { this.state.display ?(<input type="text"  className='form' value={this.state.titleM} 
+                   onChange={(event) => {
+                         const input = event.target;
+                         this.setState({ titleM: input.value })}} /> )
+                   : <div className="title">{title}</div>} 
                 </div>
-                <div className="article">
+                <div >
+                  {this.state.display ? (
+                      <div className="article">
+                          <input type="text"  className='form'  value={this.state.introM} onChange={(event) => {
+            const input = event.target;
+            this.setState({ introM: input.value })
+          }} />
+                          <textarea className='form' id="ctn" name="ctnr"
+            rows="15" cols="33" value={this.state.contentM} 
+            onChange={(event) => {
+                const input = event.target;
+                this.setState({ contentM: input.value })}}/>
+                          </div>
+                  ) : ( <div className="article">
                     <div className="intro">{intro}</div>
                     <div className="content">{content}</div>
-                    <div className="flexContent">
+                    </div>)
+                    }
+                 { this.state.display ? null :(  <div className="flexContent">
                         <Link to="/" className="menu blue small" onClick={() => this.modify('cold')}>Cold: {cold}</Link>
                         <Link to='/' className="menu red small" onClick={() => this.modify('burn')}>Burn: {burn}</Link>
-                    </div>
+                    </div>)}
                 </div>
             </div>
         )
