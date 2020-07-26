@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import Commentaires from './Commentaires';
+import AddCommentaires from './AddCommentaires';
 import {
     BrowserRouter as Router,
     Switch,
@@ -144,6 +146,9 @@ class Article extends React.Component {
                         <Link to='/' className="menu red small" onClick={() => this.modify('burn')}>Burn: {burn}</Link>
                     </div>)}
                 </div>
+               
+                <Commentaires handle={window.location.pathname.substr(9)} />
+                <AddCommentaires  handle={window.location.pathname.substr(9)} />
             </div>
         )
     }

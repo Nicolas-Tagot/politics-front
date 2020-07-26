@@ -129,6 +129,23 @@ body{
 
   transition: 1.5s;
 }
+.comms{
+  margin-top: 40px;
+  width: 50%;
+  margin: auto;
+}
+.addComs{
+  width: 100%;
+}
+
+.com{
+  box-shadow: 2px 4px 4px 0px rgba(42,42,42,.26);
+  padding: 17px;
+  outline: none;
+  border: hidden;
+  margin-left: 15px;
+  margin-top: 30px;
+ }
 
 
 .article{
@@ -312,6 +329,7 @@ body{
   
     transition: 1.5s;
   }
+  
   
   
   .article{
